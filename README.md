@@ -1,2 +1,2 @@
-# leetCode_C-
-leetCode 上解题代码实现，纯属个人练习
+＃leetCode_Test
+leetCode_Test C ++版本的解题实现，纯属个人练习测试！
