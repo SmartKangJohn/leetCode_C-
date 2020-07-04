@@ -150,7 +150,6 @@
     <ClInclude Include="MainTestCom.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="leetCode209.cpp" />
     <ClCompile Include="MainTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

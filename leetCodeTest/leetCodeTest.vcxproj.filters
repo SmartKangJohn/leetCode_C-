@@ -18,9 +18,6 @@
     <ClCompile Include="MainTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="leetCode209.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leetCode209.h">
