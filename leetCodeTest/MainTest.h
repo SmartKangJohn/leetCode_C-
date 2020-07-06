@@ -27,14 +27,18 @@ void test_209()
 
 void test_15()
 {
+	int num[15] = {-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6};
 	//int num[6] = { -1, 0, 1, 2, -1, -4 };
 	//int num[4] = { 1, -1, -1, 0 };
-	int num[11] = { -3, 1, -5, 2, -4, 2, -1, 1, -5, -1, 4 };
-	vector<int> nums, nums1;
-	for (int i = 0; i < 11; i++)
+	//int num[11] = { -3, 1, -5, 2, -4, 2, -1, 1, -5, -1, 4 };
+	int numLen = 15;
+
+	vector<int> nums, nums1, nums2;
+	for (int i = 0; i < numLen; i++)
 	{
 		nums.push_back(num[i]);
 		nums1.push_back(num[i]);
+		nums2.push_back(num[i]);
 	}
 	Solution_15 slon_15;
 	vector<vector<int>> findNum;
@@ -55,6 +59,7 @@ void test_15()
 		}
 		cout << ")" << endl;
 	}
+	cout << endl;
 
 	Solution_15_1 slon_15_1;
 	findNum.clear();
@@ -75,5 +80,27 @@ void test_15()
 		}
 		cout << ")" << endl;
 	}
+	cout << endl;
+
+	Solution_15_2 slon_15_2;
+	findNum.clear();
+	findNum = slon_15_2.threeSum(nums2);
+	for (int i = 0; i < findNum.size(); i++)
+	{
+		cout << "findNum_2[" << i << "] = (";
+		for (int j = 0; j < findNum[i].size(); j++)
+		{
+			if (j == findNum[i].size() - 1)
+			{
+				cout << findNum[i][j];
+			}
+			else
+			{
+				cout << findNum[i][j] << ";";
+			}
+		}
+		cout << ")" << endl;
+	}
+	cout << endl;
 
 }
