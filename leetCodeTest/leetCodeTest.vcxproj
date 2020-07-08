@@ -146,6 +146,7 @@
     <ClInclude Include="commont.h" />
     <ClInclude Include="leetCode15.h" />
     <ClInclude Include="leetCode209.h" />
+    <ClInclude Include="leetCode27.h" />
     <ClInclude Include="MainTest.h" />
     <ClInclude Include="MainTestCom.h" />
   </ItemGroup>

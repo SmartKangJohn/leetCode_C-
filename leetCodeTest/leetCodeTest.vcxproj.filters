@@ -32,6 +32,9 @@
     <ClInclude Include="commont.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="leetCode27.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="MainTestCom.h">
       <Filter>头文件</Filter>
     </ClInclude>

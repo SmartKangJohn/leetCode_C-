@@ -119,132 +119,15 @@ public:
 		if (numSize >= 3)
 		{
 			sort_slf(nums);
-			for (int i = 0; i <= numSize-3 && nums[i] <= 0; i++)
-			{
-				for (int j = numSize - 1; j >= 2 && nums[j] >= 0; j--)
-				{
-					for (int k = i + 1; k < j; k++)
-					{
-						int sum = nums[i] + nums[j] + nums[k];
-						if (sum == 0)
-						{
-							vNum[0] = nums[i];
-							vNum[1] = nums[k];
-							vNum[2] = nums[j];
-							if (findNums.empty())
-							{
-								findNums.push_back(vNum);
-							}
-							else
-							{
-								bool isNeed = true;
-								for (int i = 0; i < findNums.size(); i++)
-								{
-									if (vNum[0] == findNums[i][0]) {
-										if (vNum[1] == findNums[i][1]) {
-											if (vNum[2] == findNums[i][2]) {
-												isNeed = false;
-												break;
-											}
-										}
-									}
-								}
-								if (isNeed)
-								{
-									findNums.push_back(vNum);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		return findNums;
-	}
-
-	void sort_slf(vector<int>& nums)
-	{
-		vector<int> newNum(nums.size());
-		sort_slf(nums, 0, nums.size()-1, newNum);
-	}
-
-	void sort_slf(vector<int>& nums, int lo, int hi, vector<int>& newNum)
-	{
-		if (hi <= lo) { return; }
-		int mid = lo + (hi - lo) / 2;
-		sort_slf(nums, lo, mid, newNum);
-		sort_slf(nums, mid + 1, hi, newNum);
-		merge_slf(nums, lo, mid, hi, newNum);
-	}
-
-	void merge_slf(vector<int>& nums, int lo, int mid, int hi, vector<int>& newNum)
-	{
-		for (int k = lo; k <= hi; k++)
-		{
-			newNum[k] = nums[k];
-		}
-		int i = lo, j = mid + 1;
-		for (int k = lo; k  <= hi; k++)
-		{
-			if (i > mid)
-			{
-				nums[k] = newNum[j++];
-			}
-			else if (j > hi)
-			{
-				nums[k] = newNum[i++];
-			}
-			else if(newNum[j] < newNum[i])
-			{
-				nums[k] = newNum[j++];
-			}
-			else
-			{
-				nums[k] = newNum[i++];
-			}
-		}
-	}
-};
-
-/*
-struct FindNum
-{
-	int lo;
-	int mid;
-	int hi;
-	void operator = (FindNum& other1)
-	{
-		lo = other1.lo;
-		mid = other1.mid;
-		hi = other1.hi;
-	}
-};
-*/
-
-class Solution_15_2 {
-public:
-	vector<vector<int>> threeSum(vector<int>& nums) {
-		int numSize = nums.size();
-		vector<vector<int>> findNums;
-		vector<int> vNum(3);
-		if (numSize >= 3)
-		{
-			sort_slf(nums);
 			for (int i = 0; i <= numSize - 3 && nums[i] <= 0; i++)
 			{
 				for (int j = numSize - 1; j >= 2 && nums[j] >= 0; j--)
 				{
-					if (j <= numSize - 1 && nums[j] == nums[j - 1] && nums[j] != 0)
-					{
-						continue;
-					}
 					for (int k = i + 1; k < j; k++)
 					{
-						if (k >= i+1 && nums[k] == nums[k+1])
-						{
-							continue;
-						}
 						int sum = nums[i] + nums[j] + nums[k];
+						if (sum > 0)
+							k = j;
 						if (sum == 0)
 						{
 							vNum[0] = nums[i];
@@ -418,5 +301,66 @@ public:
 				nums[k] = newNum[i++];
 			}
 		}
+	}
+};
+
+class Solution_15_2 {
+public:
+	vector<vector<int>> threeSum(vector<int>& nums) {
+		sort(nums.begin(), nums.end());
+		int nSize = nums.size();
+		vector<vector<int>> findNums;
+		if (nSize < 3)
+		{
+			return findNums;
+		}
+		else
+		{
+			vector<int> vNum(3);
+			for (int i = 0; i < nSize - 2; i++)
+			{
+				if (nums[i] > 0)
+				{
+					return findNums;
+				}
+				if (i > 0 && nums[i] == nums[i-1])
+				{
+					continue;
+				}
+				int task1 = -nums[i];
+				int lo = i + 1;
+				int hi = nSize - 1;
+				while (lo < hi)
+				{
+					if (nums[lo] + nums[hi] == task1)
+					{
+						vNum[0] = nums[i];
+						vNum[1] = nums[lo];
+						vNum[2] = nums[hi];
+						findNums.push_back(vNum);
+
+						while (lo < hi && nums[lo] == nums[lo + 1])
+						{
+							lo++;
+						}
+						while (hi > lo && nums[hi] == nums[hi - 1])
+						{
+							hi--;
+						}
+						lo++;
+						hi--;
+					}
+					else if(nums[lo] + nums[hi] > task1)
+					{
+						hi--;
+					}
+					else
+					{
+						lo++;
+					}
+				}
+			}
+		}
+		return findNums;
 	}
 };

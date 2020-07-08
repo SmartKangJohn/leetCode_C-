@@ -27,11 +27,11 @@ void test_209()
 
 void test_15()
 {
-	int num[15] = {-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6};
+	//int num[15] = {-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6};
 	//int num[6] = { -1, 0, 1, 2, -1, -4 };
 	//int num[4] = { 1, -1, -1, 0 };
-	//int num[11] = { -3, 1, -5, 2, -4, 2, -1, 1, -5, -1, 4 };
-	int numLen = 15;
+	int num[11] = { -3, 1, -5, 2, -4, 2, -1, 1, -5, -1, 4 };
+	int numLen = 11;
 
 	vector<int> nums, nums1, nums2;
 	for (int i = 0; i < numLen; i++)
@@ -103,4 +103,23 @@ void test_15()
 	}
 	cout << endl;
 
+}
+
+void test_27()
+{
+	vector<int>nums = { 3,2,2,3 };
+	int val = 3;
+	vector<int>nums1 = { 0, 1, 2, 2, 3, 0, 4, 2 };
+	int val1 = 2;
+	vector<int>nums2 = {};
+	int val2 = 0;
+	Solution so;
+	int len = so.removeElement(nums, val);
+	cout << "nums长度 = " << len << endl;
+
+	len = so.removeElement(nums1, val1);
+	cout << "nums长度 = " << len << endl;
+
+	len = so.removeElement(nums2, val2);
+	cout << "nums长度 = " << len << endl;
 }
