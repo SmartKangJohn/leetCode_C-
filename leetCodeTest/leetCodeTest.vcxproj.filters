@@ -18,6 +18,9 @@
     <ClCompile Include="MainTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="leetCode_practice.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leetCode209.h">
@@ -36,6 +39,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="MainTestCom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="leetCode_practice.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

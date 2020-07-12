@@ -11,7 +11,7 @@
 #pragma once
 #include "commont.h"
 
-class Solution {
+class Solution_27 {
 public:
 	int removeElement(vector<int>& nums, int val) {
 		int nSize = nums.size();

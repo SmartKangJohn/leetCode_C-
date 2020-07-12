@@ -113,7 +113,7 @@ void test_27()
 	int val1 = 2;
 	vector<int>nums2 = {};
 	int val2 = 0;
-	Solution so;
+	Solution_27 so;
 	int len = so.removeElement(nums, val);
 	cout << "nums长度 = " << len << endl;
 
@@ -122,4 +122,90 @@ void test_27()
 
 	len = so.removeElement(nums2, val2);
 	cout << "nums长度 = " << len << endl;
+}
+
+void test_pivotIndex()
+{
+	vector<int>nums = { 1, 7, 3, 6, 5, 6 };
+	vector<int>nums1 = {-1, -1, -1, -1, -1, 0};
+	vector<int>nums2 = { -1, -1, -1, 0, 1, 1 };
+	Solution_numPractice so;
+	int centerIndex = so.pivotIndex(nums);
+	cout << "nums靠左中心索引 = " << centerIndex << endl;
+
+	centerIndex = so.pivotIndex(nums1);
+	cout << "nums靠左中心索引 = " << centerIndex << endl;
+
+	centerIndex = so.pivotIndex(nums2);
+	cout << "nums靠左中心索引 = " << centerIndex << endl;
+}
+
+void test_searchInsert()
+{
+	vector<int>nums0 = { 1, 3, 5, 6 };
+	int target0 = 5;
+	vector<int>nums1 = { 1, 3, 5, 6 };
+	int target1 = 2;
+	vector<int>nums2 = { 1, 3, 5, 6 };
+	int target2 = 7;
+	vector<int>nums3 = { 1, 3, 5, 6 };
+	int target3 = 0;
+	Solution_numPractice so;
+	int findIndex = so.searchInsert(nums0, target0);
+	cout << "nums的目标索引 = " << findIndex << endl;
+
+	findIndex = so.searchInsert(nums1, target1);
+	cout << "nums的目标索引 = " << findIndex << endl;
+
+	findIndex = so.searchInsert(nums2, target2);
+	cout << "nums的目标索引 = " << findIndex << endl;
+
+	findIndex = so.searchInsert(nums3, target3);
+	cout << "nums的目标索引 = " << findIndex << endl;
+}
+
+void test_merge()
+{
+	vector<vector<int>>intervals0(4, vector<int>(2, 0));
+	intervals0[0][0] = 1;
+	intervals0[0][1] = 3;
+	intervals0[1][0] = 2;
+	intervals0[1][1] = 6;
+	intervals0[2][0] = 8;
+	intervals0[2][1] = 10;
+	intervals0[3][0] = 15;
+	intervals0[3][1] = 18;
+	vector<vector<int>>intervals1(2, vector<int>(2, 0));
+	intervals0[0][0] = 1;
+	intervals0[0][1] = 4;
+	intervals0[1][0] = 4;
+	intervals0[1][1] = 5;
+	Solution_numPractice so;
+	vector<vector<int>> find_intervals = so.merge(intervals0);
+	for (int i = 0; i < find_intervals.size(); i++)
+	{
+		if (i == 0)
+		{
+			printf("输出区间为：[ ");
+		}
+		printf("[%d, %d],", find_intervals[i][0], find_intervals[i][1]);
+		if (i == find_intervals.size()-1)
+		{
+			printf(" ] .\n");
+		}
+	}
+
+	find_intervals = so.merge(intervals1);
+	for (int i = 0; i < find_intervals.size(); i++)
+	{
+		if (i == 0)
+		{
+			printf("输出区间为：[ ");
+		}
+		printf("[%d, %d],", find_intervals[i][0], find_intervals[i][1]);
+		if (i == find_intervals.size() - 1)
+		{
+			printf(" ] .\n");
+		}
+	}
 }
