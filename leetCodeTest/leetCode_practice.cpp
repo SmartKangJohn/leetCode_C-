@@ -108,14 +108,122 @@ int Solution_numPractice::searchInsert(vector<int>& nums, int target)
 
 vector<vector<int>> Solution_numPractice::merge(vector<vector<int>>& intervals)
 {
+	sort(intervals.begin(), intervals.end());
 	vector<vector<int>> vfind1;
-	vector<int> vf1(2, 0);
-	int nSize = intervals.size();
-	for (int i = 0; i < nSize; i++)
-	{
-		for (int j = 0; j < nSize; j++)
-		{
+	for (int i = 0; i < intervals.size();) {
+		int t = intervals[i][1];
+		int j = i + 1;
+		while (j < intervals.size() && intervals[j][0] <= t) {
+			t = max(t, intervals[j][1]);
+			j++;
 		}
+		vfind1.push_back({ intervals[i][0], t });
+		i = j;
 	}
 	return vfind1;
+}
+
+void Solution_numPractice::rotate(vector<vector<int>>& matrix)
+{
+	int nSize = matrix.size();
+	int pSize = matrix[0].size();
+	int ex1;
+	for (int i = 0; i < nSize; i++)
+	{
+		for (int j = 0; j < pSize/2; j++)
+		{
+			ex1 = matrix[i][j];
+			matrix[i][j] = matrix[i][pSize-1-j];
+			matrix[i][pSize - 1 - j] = ex1;
+		}
+	}
+	for (int i = 0; i < nSize; i++)
+	{
+		for (int j = 0; j < pSize - i; j++)
+		{
+			ex1 = matrix[i][j];
+			matrix[i][j] = matrix[nSize-1-j][pSize - 1 - i];
+			matrix[nSize - 1 - j][pSize - 1 - i] = ex1;
+			if (j == pSize - 1)
+			{
+				break;
+			}
+		}
+		if (i == nSize - 1)
+		{
+			break;
+		}
+	}
+}
+
+void Solution_numPractice::setZeroes(vector<vector<int>>& matrix)
+{
+	vector<vector<int>> vfind;
+	vector<int> vf(2, -1);
+	for (int i = 0; i < matrix.size(); i++)
+	{
+		for (int j = 0; j < matrix[0].size(); j++)
+		{
+			if (matrix[i][j] == 0)
+			{
+				vf[0] = i;
+				vf[1] = j;
+				vfind.push_back(vf);
+			}
+		}
+	}
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		int m = vfind[i][0];
+		int n = vfind[i][1];
+		for (int j = 0; j < matrix[0].size(); j++)
+		{
+			matrix[m][j] = 0;
+		}
+		for (int j = 0; j < matrix.size(); j++)
+		{
+			matrix[j][n] = 0;
+		}
+	}
+}
+
+vector<int> Solution_numPractice::findDiagonalOrder(vector<vector<int>>& matrix)
+{
+	vector<int> vfind;
+	if (matrix.empty() || matrix[0].empty())
+	{
+		return {};
+	}
+	int rSize = matrix.size();
+	int cSize = matrix[0].size();
+	int r = 0, c = 0;
+	bool trState = true;
+	for (int i = 0; i < rSize + cSize; i++)
+	{
+		if (trState)
+		{
+			r = i < rSize ? i : rSize - 1;
+			c = i - r;
+			while (r >= 0 && c < cSize)
+			{
+				vfind.push_back(matrix[r][c]);
+				r--;
+				c++;
+			}
+			trState = false;
+		}
+		else
+		{
+			c = i < cSize ? i : cSize - 1;
+			r = i - c;
+			while (c >= 0 && r < rSize)
+			{
+				vfind.push_back(matrix[r][c]);
+				r++;
+				c--;
+			}
+			trState = true;
+		}
+	}
+	return vfind;
 }

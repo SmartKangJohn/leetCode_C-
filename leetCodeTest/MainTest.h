@@ -176,10 +176,10 @@ void test_merge()
 	intervals0[3][0] = 15;
 	intervals0[3][1] = 18;
 	vector<vector<int>>intervals1(2, vector<int>(2, 0));
-	intervals0[0][0] = 1;
-	intervals0[0][1] = 4;
-	intervals0[1][0] = 4;
-	intervals0[1][1] = 5;
+	intervals1[0][0] = 1;
+	intervals1[0][1] = 4;
+	intervals1[1][0] = 0;
+	intervals1[1][1] = 0;
 	Solution_numPractice so;
 	vector<vector<int>> find_intervals = so.merge(intervals0);
 	for (int i = 0; i < find_intervals.size(); i++)
@@ -206,6 +206,163 @@ void test_merge()
 		if (i == find_intervals.size() - 1)
 		{
 			printf(" ] .\n");
+		}
+	}
+}
+
+void test_rotate()
+{
+	vector<vector<int>> matrix0 =
+	{
+		{ 1, 2, 3 },
+		{ 4, 5, 6 },
+		{ 7, 8, 9 } 
+	};
+	vector<vector<int>> matrix1 =
+	{
+		{ 5, 1, 9,11 },
+		{ 2, 4, 8,10 },
+		{ 13, 3, 6, 7 },
+		{ 15, 14,12,16 }
+	};
+	Solution_numPractice so;
+	so.rotate(matrix0);
+	for (int i = 0; i < matrix0.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "matrox0 = [ " << endl;
+		}
+		for (int j = 0; j < matrix0[0].size(); j++)
+		{
+			if (j == 0)
+			{
+				cout << " [ ";
+			}
+			cout << matrix0[i][j] << ",";
+			if (matrix0[0].size() - 1 == j)
+			{
+				cout << " ] " << endl;
+			}
+		}
+		if (i == matrix0.size() - 1)
+		{
+			cout << " ] " << endl;
+		}
+	}
+
+	so.rotate(matrix1);
+	for (int i = 0; i < matrix1.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "matrox0 = [ " << endl;
+		}
+		for (int j = 0; j < matrix1[0].size(); j++)
+		{
+			if (j == 0)
+			{
+				cout << " [ ";
+			}
+			cout << matrix1[i][j] << ",";
+			if (matrix1[0].size() - 1 == j)
+			{
+				cout << " ] " << endl;
+			}
+		}
+		if (i == matrix1.size() - 1)
+		{
+			cout << " ] " << endl;
+		}
+	}
+}
+
+void test_setZeroes()
+{
+	vector<vector<int>> matrix0 =
+	{
+		{ 1, 1, 1 },
+		{ 1, 0, 1 },
+		{ 1, 1, 1 }
+	};
+	vector<vector<int>> matrix1 =
+	{
+		{ 0,1,2,0 },
+		{ 3,4,5,2 },
+		{ 1,3,1,5 }
+	};
+	Solution_numPractice so;
+	so.setZeroes(matrix0);
+	for (int i = 0; i < matrix0.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "matrox0 = [ " << endl;
+		}
+		for (int j = 0; j < matrix0[0].size(); j++)
+		{
+			if (j == 0)
+			{
+				cout << " [ ";
+			}
+			cout << matrix0[i][j] << ",";
+			if (matrix0[0].size() - 1 == j)
+			{
+				cout << " ] " << endl;
+			}
+		}
+		if (i == matrix0.size() - 1)
+		{
+			cout << " ] " << endl;
+		}
+	}
+
+	so.setZeroes(matrix1);
+	for (int i = 0; i < matrix1.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "matrox0 = [ " << endl;
+		}
+		for (int j = 0; j < matrix1[0].size(); j++)
+		{
+			if (j == 0)
+			{
+				cout << " [ ";
+			}
+			cout << matrix1[i][j] << ",";
+			if (matrix1[0].size() - 1 == j)
+			{
+				cout << " ] " << endl;
+			}
+		}
+		if (i == matrix1.size() - 1)
+		{
+			cout << " ] " << endl;
+		}
+	}
+}
+
+void test_findDiagonalOrder()
+{
+	vector<vector<int>> matrix0 =
+	{
+		{ 1, 2, 3 },
+		{ 4, 5, 6 },
+		{ 7, 8, 9 }
+	};
+	Solution_numPractice so;
+	vector<int> vfind = so.findDiagonalOrder(matrix0);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "matrox0 = [ ";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << " ] " << endl;
 		}
 	}
 }

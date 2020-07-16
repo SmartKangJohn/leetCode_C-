@@ -16,7 +16,20 @@ public:
 	你可以假设数组中无重复元素。*/
 	int searchInsert(vector<int>& nums, int target);
 
-	/*	合并区间
+	/*56  合并区间
 	给出一个区间的集合，请合并所有重叠的区间。*/
 	vector<vector<int>> merge(vector<vector<int>>& intervals);
+
+	/*  旋转矩阵
+	给你一幅由 N × N 矩阵表示的图像，其中每个像素的大小为 4 字节。请你设计一种算法，将图像旋转 90 度。
+	不占用额外内存空间能否做到？*/
+	void rotate(vector<vector<int>>& matrix);
+
+	/*  零矩阵
+	编写一种算法，若M × N矩阵中某个元素为0，则将其所在的行与列清零。*/
+	void setZeroes(vector<vector<int>>& matrix);
+
+	/*  对角线遍历
+	给定一个含有 M x N 个元素的矩阵（M 行，N 列），请以对角线遍历的顺序返回这个矩阵中的所有元素，对角线遍历如下图所示。*/
+	vector<int> findDiagonalOrder(vector<vector<int>>& matrix);
 };
