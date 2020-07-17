@@ -147,12 +147,14 @@
     <ClInclude Include="leetCode15.h" />
     <ClInclude Include="leetCode209.h" />
     <ClInclude Include="leetCode27.h" />
-    <ClInclude Include="leetCode_practice.h" />
+    <ClInclude Include="leetCode_numPractice.h" />
+    <ClInclude Include="leetCode_stringPractice.h" />
     <ClInclude Include="MainTest.h" />
     <ClInclude Include="MainTestCom.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="leetCode_practice.cpp" />
+    <ClCompile Include="leetCode_numPractice.cpp" />
+    <ClCompile Include="leetCode_stringPractice.cpp" />
     <ClCompile Include="MainTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

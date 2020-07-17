@@ -1,4 +1,4 @@
-#include "leetCode_practice.h"
+#include "leetCode_numPractice.h"
 
 int Solution_numPractice::pivotIndex(vector<int>& nums)
 {

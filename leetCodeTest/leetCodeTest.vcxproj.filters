@@ -18,7 +18,10 @@
     <ClCompile Include="MainTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="leetCode_practice.cpp">
+    <ClCompile Include="leetCode_stringPractice.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="leetCode_numPractice.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +44,10 @@
     <ClInclude Include="MainTestCom.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="leetCode_practice.h">
+    <ClInclude Include="leetCode_stringPractice.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="leetCode_numPractice.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

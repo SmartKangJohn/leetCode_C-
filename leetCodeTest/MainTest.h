@@ -366,3 +366,43 @@ void test_findDiagonalOrder()
 		}
 	}
 }
+
+void test_longestCommonPrefix()
+{
+	vector<string> vstring0 = { "flower","flow","flight" };
+	vector<string> vstring1 = { "dog","racecar","car" };
+	Solution_stringPractice so;
+	string sfind = so.longestCommonPrefix(vstring0);
+	cout << "sfind = " << sfind << endl;
+
+	sfind = so.longestCommonPrefix(vstring1);
+	cout << "sfind = " << sfind << endl;
+}
+
+void test_longestPalindrome()
+{
+	string s0 = { "babad" };
+	string s1 = { "abb" };
+	Solution_stringPractice so;
+	string sfind = so.longestPalindrome(s0);
+	cout << "sfind = " << sfind << endl;
+
+	sfind = so.longestPalindrome(s1);
+	cout << "sfind = " << sfind << endl;
+}
+
+void test_reverseWords()
+{
+	string s0 = "the sky is blue";
+	string s1 = "  hello world!  ";
+	string s2 = "a good   example";
+	Solution_stringPractice so;
+	string sfind = so.reverseWords(s0);
+	cout << "sfind = " << sfind << endl;
+
+	sfind = so.reverseWords(s1);
+	cout << "sfind = " << sfind << endl;
+
+	sfind = so.reverseWords(s2);
+	cout << "sfind = " << sfind << endl;
+}

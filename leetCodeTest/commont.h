@@ -3,6 +3,7 @@
 #include <set>
 #include <queue>
 #include <stack>
+#include <string>
 
 #include <iostream>
 

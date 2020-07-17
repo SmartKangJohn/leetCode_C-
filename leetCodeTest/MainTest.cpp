@@ -19,7 +19,13 @@ int main()
 
 	//test_setZeroes();
 
-	test_findDiagonalOrder();
+	//test_findDiagonalOrder();
+
+	//test_longestCommonPrefix();
+
+	//test_longestPalindrome();
+
+	test_reverseWords();
 
 	return 1;
 }
