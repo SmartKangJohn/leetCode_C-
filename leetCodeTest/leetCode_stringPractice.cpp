@@ -164,3 +164,111 @@ string Solution_stringPractice::reverseWords(string s)
 	}
 	return s1;
 }
+
+int Solution_stringPractice::strStr(string haystack, string needle)
+{
+	//int hSize = haystack.length();
+	//int nSize = needle.length();
+	//char* h = new char(hSize);
+	//char* n = new char(nSize);
+	//while (hSize > 0)
+	//{
+	//	h[hSize - 1] = haystack[hSize - 1];
+	//	hSize--;
+	//}
+ //	while (nSize > 0)
+	//{
+	//	n[nSize - 1] = needle[nSize - 1];
+	//	nSize--;
+	//}
+	//int pos1 = match_KMP(h, n);
+	//delete[] h;
+	//delete[] n;
+
+	int pos1 = match_KMP(haystack, needle);
+	return pos1;
+}
+
+int Solution_stringPractice::match_KMP(const char * P, const char * S)
+{
+	int* next = buildNext(S);  //构造next表
+	int sizeP = strlen(P), n_P = 0;	 //源str指针
+	int sizeS = strlen(S), n_S = 0;  //模板str指针
+	while (n_P < sizeP && n_S < sizeS)
+	{
+		if (n_P < 0 || S[n_S] == P[n_P])
+		{
+			n_P++;
+			n_S++;
+		}
+		else
+		{
+			n_P = next[n_P];
+		}
+ 	}
+	delete[] next;
+	return n_P - n_S;
+}
+
+int Solution_stringPractice::match_KMP(string P, string S)
+{
+	vector<int> vNext = buildNext(S);
+	int sizeP = P.length(), n_P = 0;	 //源str指针
+	int sizeS = S.length(), n_S = 0;  //模板str指针
+	while (n_P < sizeP && n_S < sizeS)
+	{
+		if (n_P < 0 || S[n_S] == P[n_P])
+		{
+			n_P++;
+			n_S++;
+		}
+		else
+		{
+			n_P = vNext[n_P];
+		}
+	}
+	return n_S - n_P;
+}
+
+int * Solution_stringPractice::buildNext(const char * M)
+{
+	size_t m = (int)strlen(M), j = 0;
+	int* N = new int(m);
+	int t = N[0] = -1;
+	while (j < m-1)
+	{
+		if (0 > t || M[j] == M[t])
+		{
+			j++;
+			t++;
+			N[j] = t;
+		}
+		else
+		{
+			t = N[t];
+		}
+	}
+	return N;
+}
+
+vector<int> Solution_stringPractice::buildNext(string M)
+{
+	int nSize = M.length();
+	int j = 0;
+	vector<int> N(nSize);
+	int t = N[0] = -1;
+	while (j < nSize - 1)
+	{
+		if (0 > t || M[j] == M[t])
+		{
+			j++;
+			t++;
+			N[j] = t;
+		}
+		else
+		{
+			t = N[t];
+		}
+	}
+	return N;
+}

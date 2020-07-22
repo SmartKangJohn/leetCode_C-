@@ -406,3 +406,222 @@ void test_reverseWords()
 	sfind = so.reverseWords(s2);
 	cout << "sfind = " << sfind << endl;
 }
+
+/*目前还存在着BUG*/
+void test_strStr()  
+{
+	string haystack0 = "hello", needle0 = "ll";
+	string haystack1 = "aaaaa", needle1 = "bba";
+	Solution_stringPractice so;
+	int findIndex = so.strStr(haystack0, needle0);
+	cout << "findIndex = " << findIndex << endl;
+
+	findIndex = so.strStr(haystack1, needle1);
+	cout << "findIndex = " << findIndex << endl;
+}
+
+void test_reverseString()
+{
+	string s1 = "hello", s2 = "Hannah";
+	vector<char> vc1, vc2;
+	for (int i = 0; i < s1.length(); i++)
+	{
+		vc1.push_back(s1[i]);
+	}
+	for (int i = 0; i < s2.length(); i++)
+	{
+		vc2.push_back(s2[i]);
+	}
+
+	Solution_doublePtrPractice so;
+	so.reverseString(vc1);
+	for (int i = 0; i < vc1.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "vector<char> = ";
+		}
+		cout << vc1[i];
+		if (i == vc1.size()-1)
+		{
+			cout << endl;
+		}
+	}
+
+	so.reverseString(vc2);
+	for (int i = 0; i < vc2.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "vector<char> = ";
+		}
+		cout << vc2[i];
+		if (i == vc2.size() - 1)
+		{
+			cout << endl;
+		}
+	}
+}
+
+void test_arrayPairSum()
+{
+	vector<int> vs1 = { 1,4,3,2 };
+	Solution_doublePtrPractice so;
+	int sum = so.arrayPairSum(vs1);
+	cout << "PairSum = " << sum << endl;
+}
+
+void test_twoSum()
+{
+	vector<int> vNum1 = { 0, 0, 3, 4 };
+	int target1 = 0;
+	vector<int> vNum2 = { 3,24,50,79,88,150,345 };
+	int target2 = 200;
+
+	Solution_doublePtrPractice so;
+	vector<int> vfind = so.twoSum(vNum1, target1);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size()-1)
+		{
+			cout << "]" << endl;
+		}
+	}
+
+	vfind = so.twoSum(vNum2, target2);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+}
+
+void test_removeElement()
+{
+	vector<int> v1 = { 0,1,2,2,3,0,4,2 };
+	int target1 = 2;
+	vector<int> v2 = { 3,2,2,3 };
+	int target2 = 3;
+
+	Solution_doublePtrPractice so;
+	int newSize = so.removeElement(v1, target1);
+	cout << "newSize = " << newSize << endl;
+
+	newSize = so.removeElement(v2, target2);
+	cout << "newSize = " << newSize << endl;
+}
+
+void test_findMaxConsecutiveOnes()
+{
+	vector<int> v1 = { 1,1,0,1,1,1 };
+	vector<int> v2 = { 1,0,1,1,0,1 };
+
+	Solution_doublePtrPractice so;
+	int numMax = so.findMaxConsecutiveOnes(v1);
+	cout << "1连续数量 = " << numMax << endl;
+
+	numMax = so.findMaxConsecutiveOnes(v2);
+	cout << "1连续数量 = " << numMax << endl;
+}
+
+void test_minSubArrayLen()
+{
+	vector<int> v1 = { 2,3,1,2,4,3 };
+	int s1 = 7;
+	vector<int> v2 = { 1,4,4 };
+	int s2 = 4;
+
+	Solution_doublePtrPractice so;
+	int numMin = so.minSubArrayLen(s1, v1);
+	cout << "最小子数组长度 = " << numMin << endl;
+
+	numMin = so.minSubArrayLen(s2, v2);
+	cout << "最小子数组长度 = " << numMin << endl;
+}
+
+void test_MyHashSet()
+{
+	MyHashSet hashSet;
+	hashSet.add(1);
+	hashSet.add(2);
+	bool bRet;
+	bRet = hashSet.contains(1);    // 返回 true
+	bRet = hashSet.contains(3);    // 返回 false (未找到)
+	hashSet.add(2);
+	bRet = hashSet.contains(2);    // 返回 true
+	hashSet.remove(2);
+	bRet = hashSet.contains(2);    // 返回  false (已经被删除)
+}
+
+void test_MyHashMap()
+{
+	MyHashMap hashMap;
+	hashMap.put(1, 1);
+	hashMap.put(2, 2);
+	int iRet;
+	iRet = hashMap.get(1);            // 返回 1
+	iRet = hashMap.get(3);            // 返回 -1 (未找到)
+	hashMap.put(2, 1);         // 更新已有的值
+	iRet = hashMap.get(2);            // 返回 1 
+	hashMap.remove(2);         // 删除键为2的数据
+	iRet = hashMap.get(2);            // 返回 -1 (未找到)
+}
+
+/*哈希集 - 用法*/
+void test_unordered_set_hashset()
+{
+	// 1. initialize a hash set
+	unordered_set<int> hashset;
+	// 2. insert a new key
+	hashset.insert(3);
+	hashset.insert(2);
+	hashset.insert(1);
+	// 3. delete a key
+	hashset.erase(2);
+	// 4. check if the key is in the hash set
+	if (hashset.count(2) <= 0) {
+		cout << "Key 2 is not in the hash set." << endl;
+	}
+	// 5. get the size of the hash set
+	cout << "The size of hash set is: " << hashset.size() << endl;
+	// 6. iterate the hash set
+	for (auto it = hashset.begin(); it != hashset.end(); ++it) {
+		cout << (*it) << " ";
+	}
+	cout << "are in the hash set." << endl;
+	// 7. clear the hash set
+	hashset.clear();	
+	// 8. check if the hash set is empty
+	if (hashset.empty()) {
+		cout << "hash set is empty now!" << endl;
+	}
+}
+
+/*使用哈希集查重*/
+/*
+ * Template for using hash set to find duplicates.
+ */
+template <class Type>
+bool findDuplicates(vector<Type>& keys) {
+	// Replace Type with actual type of your key
+	unordered_set<Type> hashset;
+	for (Type key : keys) {
+		if (hashset.count(key) > 0) {
+			return true;
+		}
+		hashset.insert(key);
+	}
+	return false;
+}

@@ -4,3 +4,6 @@
 #include "leetCode27.h"
 #include "leetCode_numPractice.h"
 #include "leetCode_stringPractice.h"
+#include "leetcode_doublePtrPractice.h"
+#include "leetcode_numsSummaryPractice.h"
+#include "leetcode_hashTablePractice.h"

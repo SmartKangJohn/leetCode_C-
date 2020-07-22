@@ -147,13 +147,19 @@
     <ClInclude Include="leetCode15.h" />
     <ClInclude Include="leetCode209.h" />
     <ClInclude Include="leetCode27.h" />
+    <ClInclude Include="leetcode_doublePtrPractice.h" />
+    <ClInclude Include="leetcode_hashTablePractice.h" />
     <ClInclude Include="leetCode_numPractice.h" />
+    <ClInclude Include="leetcode_numsSummaryPractice.h" />
     <ClInclude Include="leetCode_stringPractice.h" />
     <ClInclude Include="MainTest.h" />
     <ClInclude Include="MainTestCom.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="leetcode_doublePtrPractice.cpp" />
+    <ClCompile Include="leetcode_hashTablePractice.cpp" />
     <ClCompile Include="leetCode_numPractice.cpp" />
+    <ClCompile Include="leetcode_numsSummaryPractice.cpp" />
     <ClCompile Include="leetCode_stringPractice.cpp" />
     <ClCompile Include="MainTest.cpp" />
   </ItemGroup>
