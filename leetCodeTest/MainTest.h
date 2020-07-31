@@ -625,3 +625,224 @@ bool findDuplicates(vector<Type>& keys) {
 	}
 	return false;
 }
+
+void test_containsDuplicate()
+{
+	vector<int> v1 = { 1,2,3,1 };
+	vector<int> v2 = { 1,2,3,4 };
+	vector<int> v3 = { 1,1,1,3,3,4,3,2,4,2 };
+
+	Solution_hashTablePractice so;
+	bool bRet = so.containsDuplicate(v1);
+	cout << "v1数组是否有重复: " << bRet << endl;
+
+	bRet = so.containsDuplicate(v2);
+	cout << "v2数组是否有重复: " << bRet << endl;
+
+	bRet = so.containsDuplicate(v3);
+	cout << "v3数组是否有重复: " << bRet << endl;
+}
+
+void test_singleNumber()
+{
+	vector<int> v1 = { 2,2,1 };
+	vector<int> v2 = { 4,1,2,1,2 };
+
+	Solution_hashTablePractice so;
+	int iRet = so.singleNumber(v1);
+	cout << "v1数组只出现一次元素: " << iRet << endl;
+
+	iRet = so.singleNumber(v2);
+	cout << "v2数组只出现一次元素: " << iRet << endl;
+}
+
+void test_intersection()
+{
+	vector<int> v1 = { 1,2,2,1 };
+	vector<int> v2 = { 2,2 };
+
+	vector<int> v3 = { 4,9,5 };
+	vector<int> v4 = { 9,4,9,8,4 };
+
+	Solution_hashTablePractice so;
+	vector<int> vfind = so.intersection(v1, v2);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+
+	vfind = so.intersection(v3, v4);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+}
+
+void test_isHappy()
+{
+	int n1 = 2;  //19, 2, 
+
+	Solution_hashTablePractice so;
+	bool bRet = so.isHappy(n1);
+	cout << "是否快乐数: " << bRet << endl;
+}
+
+void test_twoSum1()
+{
+	vector<int> nums0 = { 2, 7, 11, 15 };
+	int traget0 = 9;
+	vector<int> nums1 = { 3, 3};
+	int traget1 = 6;
+
+	Solution_hashTablePractice so;
+	vector<int> vfind = so.twoSum(nums0, traget0);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+
+	vfind = so.twoSum(nums1, traget1);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+}
+
+void test_isIsomorphic()
+{
+	string s0 = "egg", t0 = "add";  //true
+	string s1 = "foo", t1 = "bar";  //false
+	string s2 = "paper", t2 = "title";  //true
+
+	Solution_hashTablePractice so;
+	bool bRet = so.isIsomorphic(s0, t0);
+	cout << "是否同构字符串 ： " << bRet << endl;
+
+	bRet = so.isIsomorphic(s1, t1);
+	cout << "是否同构字符串 ： " << bRet << endl;
+
+	bRet = so.isIsomorphic(s2, t2);
+	cout << "是否同构字符串 ： " << bRet << endl;
+}
+
+void test_findRestaurant()
+{
+	vector<string> ls0_1 = { "Shogun", "Tapioca Express", "Burger King", "KFC" }, 
+		ls0_2 = { "Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun" };
+	vector<string> ls1_1 = { "Shogun", "Tapioca Express", "Burger King", "KFC" },
+		ls1_2 = { "KFC", "Shogun", "Burger King" };
+	vector<string> ls2_1 = {}, 
+		ls2_2 = {};
+
+	Solution_hashTablePractice so;
+	vector<string> vfind = so.findRestaurant(ls0_1, ls0_2);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+
+	vfind = so.findRestaurant(ls1_1, ls1_2);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+}
+
+void test_firstUniqChar()
+{
+	string s0 = "leetcode";
+	string s1 = "loveleetcode";
+
+	Solution_hashTablePractice so;
+	int ifind = so.firstUniqChar(s0);
+	cout << "字符串中第一个唯一字符索引：" << ifind << endl;
+
+	ifind = so.firstUniqChar(s1);
+	cout << "字符串中第一个唯一字符索引：" << ifind << endl;
+}
+
+void test_intersect()
+{
+	vector<int> v1 = { 1,2,2,1 };
+	vector<int> v2 = { 2,2 };
+
+	vector<int> v3 = { 4,9,5 };
+	vector<int> v4 = { 9,4,9,8,4 };
+
+	Solution_hashTablePractice so;
+	vector<int> vfind = so.intersect(v1, v2);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+
+	vector<int> vfind = so.intersect(v3, v4);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [";
+		}
+		cout << vfind[i] << ",";
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+}

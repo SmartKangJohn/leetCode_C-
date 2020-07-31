@@ -8,6 +8,9 @@
 //hashset
 #include <unordered_set>
 
+//hashmap
+#include <unordered_map>
+
 #include <iostream>
 
 using namespace std;

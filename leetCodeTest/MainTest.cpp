@@ -44,7 +44,25 @@ int main()
 
 	//test_MyHashSet();
 
-	test_unordered_set_hashset();
+	//test_unordered_set_hashset();
+
+	//test_containsDuplicate();
+
+	//test_singleNumber();
+
+	//test_intersection();
+
+	//test_isHappy();
+
+	//test_twoSum1();
+
+	//test_isIsomorphic();
+
+	//test_findRestaurant();
+
+	//test_firstUniqChar();
+
+	test_intersect();
 
 	return 1;
 }
