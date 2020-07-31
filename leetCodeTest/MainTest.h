@@ -832,7 +832,7 @@ void test_intersect()
 		}
 	}
 
-	vector<int> vfind = so.intersect(v3, v4);
+	vfind = so.intersect(v3, v4);
 	for (int i = 0; i < vfind.size(); i++)
 	{
 		if (i == 0)
@@ -845,4 +845,24 @@ void test_intersect()
 			cout << "]" << endl;
 		}
 	}
+}
+
+void test_containsNearbyDuplicate()
+{
+	vector<int> v1 = { 1,2,3,1 };
+	int k1 = 3;
+	vector<int> v2 = { 1,0,1,1 };
+	int k2 = 1;
+	vector<int> v3 = { 1,2,3,1,2,3 };
+	int k3 = 2;
+
+	Solution_hashTablePractice so;
+	bool bRet = so.containsNearbyDuplicate(v1, k1);
+	cout << "是否存在重复元素：" << to_string(bRet) << endl;
+
+	bRet = so.containsNearbyDuplicate(v2, k2);
+	cout << "是否存在重复元素：" << to_string(bRet) << endl;
+
+	bRet = so.containsNearbyDuplicate(v3, k3);
+	cout << "是否存在重复元素：" << to_string(bRet) << endl;
 }

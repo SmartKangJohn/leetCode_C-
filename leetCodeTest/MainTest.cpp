@@ -62,7 +62,9 @@ int main()
 
 	//test_firstUniqChar();
 
-	test_intersect();
+	//test_intersect();
+
+	test_containsNearbyDuplicate();
 
 	return 1;
 }

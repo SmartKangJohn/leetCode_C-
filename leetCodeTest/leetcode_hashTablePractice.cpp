@@ -309,11 +309,118 @@ int Solution_hashTablePractice::firstUniqChar(string s)
 
 vector<int> Solution_hashTablePractice::intersect(vector<int>& nums1, vector<int>& nums2)
 {
-	unordered_multimap<int, int> hashTable;
+	unordered_map<int, int> hashTable, fHashTable;
 	vector<int> vfind;
-	for (int i : nums1)
+	if (nums1.size() < 1 || nums2.size() < 1)
 	{
-		hashTable.insert()
+		return {};
 	}
-	return vector<int>();
+	if (nums1.size() < nums2.size())
+	{
+		for (int i : nums1)
+		{
+			if (hashTable.count(i) > 0)
+			{
+				int hVal = hashTable[i];
+				hashTable[i] = hVal + 1;
+			}
+			else
+			{
+				hashTable.insert(make_pair(i, 0));
+			}
+		}
+		for (int i : nums2)
+		{
+			if (hashTable.count(i) > 0)
+			{
+				if (fHashTable.count(i) > 0)
+				{
+					if (fHashTable[i] >= hashTable[i])
+					{
+						continue;
+					}
+					else
+					{
+						int hVal = fHashTable[i];
+						fHashTable[i] = hVal + 1;
+						vfind.push_back(i);
+					}
+				}
+				else
+				{
+					fHashTable.insert(make_pair(i, 0));
+					vfind.push_back(i);
+				}
+			}
+		}
+	}
+	else
+	{
+		for (int i : nums2)
+		{
+			if (hashTable.count(i) > 0)
+			{
+				int hVal = hashTable[i];
+				hashTable[i] = hVal + 1;
+			}
+			else
+			{
+				hashTable.insert(make_pair(i, 0));
+			}
+		}
+		for (int i : nums1)
+		{
+			if (hashTable.count(i) > 0)
+			{
+				if (fHashTable.count(i) > 0)
+				{
+					if (fHashTable[i] >= hashTable[i])
+					{
+						continue;
+					}
+					else
+					{
+						int hVal = fHashTable[i];
+						fHashTable[i] = hVal + 1;
+						vfind.push_back(i);
+					}
+				}
+				else
+				{
+					fHashTable.insert(make_pair(i, 0));
+					vfind.push_back(i);
+				}
+			}
+		}
+	}
+	return vfind;
+}
+
+bool Solution_hashTablePractice::containsNearbyDuplicate(vector<int>& nums, int k)
+{
+	if (nums.size() < 1)
+	{
+		return false;
+	}
+	unordered_map<int, int> hashTable;
+	bool bRet = false;
+	for (int i = 0; i < nums.size(); i++)
+	{
+		if (hashTable.count(nums[i]) > 0)
+		{
+			if (i - hashTable[nums[i]] > k)
+			{
+				hashTable[nums[i]] = i;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		else
+		{
+			hashTable.insert(make_pair(nums[i], i));
+		}
+	}
+	return bRet;
 }
