@@ -64,7 +64,9 @@ int main()
 
 	//test_intersect();
 
-	test_containsNearbyDuplicate();
+	//test_containsNearbyDuplicate();
+
+	test_groupAnagrams();
 
 	return 1;
 }

@@ -73,6 +73,13 @@ public:
 	给定一个整数数组和一个整数 k，判断数组中是否存在两个不同的索引 i 和 j，使得 nums [i] = nums [j]，并且 i 和 j 的差的 绝对值 至多为 k。*/
 	bool containsNearbyDuplicate(vector<int>& nums, int k);
 
+	/*  设计键应用——字母异位词分组
+	给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+	说明：
+	所有输入均为小写字母。
+	不考虑答案输出的顺序。*/
+	vector<vector<string>> groupAnagrams(vector<string>& strs);
+
 private:
 	unordered_set<int> hashSet_happy;
 };

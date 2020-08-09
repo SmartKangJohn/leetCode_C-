@@ -424,3 +424,34 @@ bool Solution_hashTablePractice::containsNearbyDuplicate(vector<int>& nums, int 
 	}
 	return bRet;
 }
+
+vector<vector<string>> Solution_hashTablePractice::groupAnagrams(vector<string>& strs)
+{
+	if (strs.empty())
+	{
+		return {};
+	}
+	vector<vector<string>> vfind;
+	unordered_map<string, int> hashTable_i;
+	unordered_map<string, string> hashTable_s;
+	int i = 0;
+	for (string key : strs)
+	{
+		vector<string> vstr1;
+		string key1 = key;
+		sort(key1.begin(), key1.end());
+		if (hashTable_i.count(key1)>0)
+		{
+			int val = hashTable_i[key1];
+			vfind[val].push_back(key);
+		}
+		else
+		{
+			hashTable_i.insert(make_pair(key1, i));
+			vstr1.push_back(key);
+			vfind.push_back(vstr1);
+			i++;
+		}
+	}
+	return vfind;
+}

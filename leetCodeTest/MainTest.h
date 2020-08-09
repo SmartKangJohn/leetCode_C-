@@ -866,3 +866,38 @@ void test_containsNearbyDuplicate()
 	bRet = so.containsNearbyDuplicate(v3, k3);
 	cout << "是否存在重复元素：" << to_string(bRet) << endl;
 }
+
+void test_groupAnagrams()
+{
+	vector<string> vstr = { "eat", "tea", "tan", "ate", "nat", "bat" };
+
+	Solution_hashTablePractice so;
+	vector<vector<string>> vfind = so.groupAnagrams(vstr);
+	for (int i = 0; i < vfind.size(); i++)
+	{
+		if (i == 0)
+		{
+			cout << "find[] = [" << endl;
+		}
+		for (int j = 0; j < vfind[i].size(); j++)
+		{
+			if (j == 0)
+			{
+				cout << "[";
+			}
+			cout << vfind[i][j];
+			if (j == vfind[i].size() - 1)
+			{
+				cout << "]" << endl;
+			}
+			else
+			{
+				cout << ",";
+			}
+		}
+		if (i == vfind.size() - 1)
+		{
+			cout << "]" << endl;
+		}
+	}
+}
