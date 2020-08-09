@@ -467,54 +467,20 @@ bool Solution_hashTablePractice::isValidSudoku(vector<vector<char>>& board)
 			{
 				continue;
 			}
+			int index0 = (i / 3) * 3 + j / 3;
 			if (hashTable[i].count(board[i][j])>0
-				|| hashTable[i + 9 + j].count(board[i][j]) > 0
-				|| hashTable[i + 18 + j].count(board[i][j]) > 0)
+				|| hashTable[9 + j].count(board[i][j]) > 0
+				|| hashTable[18 + index0].count(board[i][j]) > 0)
 			{
 				return false;
 			}
 			else
 			{
 				hashTable[i].insert(make_pair(board[i][j], true));
-				hashTable[i + 9 + j].insert(make_pair(board[i][j], true));
-			}
-			if (i < 3 && j < 3)
-			{
-				hashTable[18 + 0].insert(make_pair(board[i][j], true));
-			}
-			else if (i < 3 && 2 < j < 6)
-			{
-				hashTable[18 + 1].insert(make_pair(board[i][j], true));
-			}
-			else if (i < 3 && 5 < j < 9)
-			{
-				hashTable[18 + 2].insert(make_pair(board[i][j], true));
-			}
-			else if (2 < i < 6 && j < 3)
-			{
-				hashTable[18 + 3].insert(make_pair(board[i][j], true));
-			}
-			else if (2 < i < 6 && 2 < j < 6)
-			{
-				hashTable[18 + 4].insert(make_pair(board[i][j], true));
-			}
-			else if (2 < i < 6 && 5 < j < 9)
-			{
-				hashTable[18 + 5].insert(make_pair(board[i][j], true));
-			}
-			else if (5 < i < 9 && j < 3)
-			{
-				hashTable[18 + 6].insert(make_pair(board[i][j], true));
-			}
-			else if (5 < i < 9 && 2 < j < 6)
-			{
-				hashTable[18 + 7].insert(make_pair(board[i][j], true));
-			}
-			else if (5 < i < 9 && 5 < j < 9)
-			{
-				hashTable[18 + 8].insert(make_pair(board[i][j], true));
+				hashTable[9 + j].insert(make_pair(board[i][j], true));
+				hashTable[18 + index0].insert(make_pair(board[i][j], true));
 			}
 		}
 	}
-	return false;
+	return true;
 }
