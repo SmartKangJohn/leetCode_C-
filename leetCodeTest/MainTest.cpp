@@ -66,7 +66,9 @@ int main()
 
 	//test_containsNearbyDuplicate();
 
-	test_groupAnagrams();
+	//test_groupAnagrams();
+
+	test_isValidSudoku();
 
 	return 1;
 }
