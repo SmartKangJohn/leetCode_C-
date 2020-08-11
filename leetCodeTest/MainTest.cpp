@@ -68,7 +68,9 @@ int main()
 
 	//test_groupAnagrams();
 
-	test_isValidSudoku();
+	//test_isValidSudoku();
+
+	test_findDuplicateSubtrees();
 
 	return 1;
 }

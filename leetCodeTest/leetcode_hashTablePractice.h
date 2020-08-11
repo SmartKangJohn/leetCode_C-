@@ -4,6 +4,16 @@
 class Solution_hashTablePractice {
 public:
 
+	struct TreeNode
+	{
+		int val;
+		TreeNode *left;
+		TreeNode *right;
+		TreeNode() : val(0), left(nullptr), right(nullptr) {}
+		TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+		TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+	};
+
 	/*  哈希集合应用——存在重复元素
 	给定一个整数数组，判断是否存在重复元素。
 	如果任意一值在数组中出现至少两次，函数返回 true 。如果数组中每个元素都不相同，则返回 false 。
@@ -105,6 +115,21 @@ public:
 	给定数独永远是 9x9 形式的。
 	*/
 	bool isValidSudoku(vector<vector<char>>& board);
+
+	/*  设计键应用——寻找重复的子树
+	给定一棵二叉树，返回所有重复的子树。对于同一类的重复子树，你只需要返回其中任意一棵的根结点即可。
+	两棵树重复是指它们具有相同的结构以及相同的结点值。
+	因此，你需要以列表的形式返回上述重复子树的根结点。
+	 * Definition for a binary tree node.
+	 * struct TreeNode {
+	 *     int val;
+	 *     TreeNode *left;
+	 *     TreeNode *right;
+	 *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	 *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	 *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+	 * };*/
+	vector<TreeNode*> findDuplicateSubtrees(TreeNode* root);
 
 private:
 	unordered_set<int> hashSet_happy;

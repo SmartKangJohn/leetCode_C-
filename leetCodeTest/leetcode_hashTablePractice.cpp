@@ -484,3 +484,9 @@ bool Solution_hashTablePractice::isValidSudoku(vector<vector<char>>& board)
 	}
 	return true;
 }
+
+vector<Solution_hashTablePractice::TreeNode*> Solution_hashTablePractice::findDuplicateSubtrees(TreeNode * root)
+{
+
+	return vector<TreeNode*>();
+}

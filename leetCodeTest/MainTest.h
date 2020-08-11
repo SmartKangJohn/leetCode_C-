@@ -937,3 +937,29 @@ void test_isValidSudoku()
 	bRet = so.isValidSudoku(board1);
 	cout << "该数独是否有效：" << bRet << endl;
 }
+
+void test_findDuplicateSubtrees()
+{
+	/*
+	  1
+	2   3
+  4    2  4
+	  4
+	答案：2-4和4为重复的子树*/
+
+	Solution_hashTablePractice::TreeNode* treeNode;
+	treeNode->val = 1;
+	treeNode->left->val = 2;
+	treeNode->left->left->val = 4;
+	treeNode->right->val = 3;
+	treeNode->right->left->val = 2;
+	treeNode->right->left->left->val = 4;
+	treeNode->right->right->val = 4;
+	Solution_hashTablePractice so;
+	vector<Solution_hashTablePractice::TreeNode*> findNode = so.findDuplicateSubtrees(treeNode);
+	for (int i = 0; i < findNode.size(); i++)
+	{
+		Solution_hashTablePractice::TreeNode* node1 = findNode[i];
+		cout << "findNode[" << i << "] = " << node1->val << endl;
+	}
+}
