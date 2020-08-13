@@ -5,6 +5,8 @@
 #include <stack>
 #include <string>
 
+#include "leetcode_struct.h"
+
 //hashset
 #include <unordered_set>
 

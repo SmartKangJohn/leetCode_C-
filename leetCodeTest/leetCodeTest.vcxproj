@@ -152,6 +152,7 @@
     <ClInclude Include="leetCode_numPractice.h" />
     <ClInclude Include="leetcode_numsSummaryPractice.h" />
     <ClInclude Include="leetCode_stringPractice.h" />
+    <ClInclude Include="leetcode_struct.h" />
     <ClInclude Include="MainTest.h" />
     <ClInclude Include="MainTestCom.h" />
   </ItemGroup>

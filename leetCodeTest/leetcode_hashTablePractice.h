@@ -4,16 +4,6 @@
 class Solution_hashTablePractice {
 public:
 
-	struct TreeNode
-	{
-		int val;
-		TreeNode *left;
-		TreeNode *right;
-		TreeNode() : val(0), left(nullptr), right(nullptr) {}
-		TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-		TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-	};
-
 	/*  哈希集合应用——存在重复元素
 	给定一个整数数组，判断是否存在重复元素。
 	如果任意一值在数组中出现至少两次，函数返回 true 。如果数组中每个元素都不相同，则返回 false 。

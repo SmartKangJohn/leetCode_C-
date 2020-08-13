@@ -947,19 +947,16 @@ void test_findDuplicateSubtrees()
 	  4
 	答案：2-4和4为重复的子树*/
 
-	Solution_hashTablePractice::TreeNode* treeNode;
-	treeNode->val = 1;
-	treeNode->left->val = 2;
-	treeNode->left->left->val = 4;
-	treeNode->right->val = 3;
-	treeNode->right->left->val = 2;
-	treeNode->right->left->left->val = 4;
-	treeNode->right->right->val = 4;
+	TreeNode* treeNode = new TreeNode(1);
+	treeNode->left = new TreeNode(2, new TreeNode(4), nullptr);
+	treeNode->right = new TreeNode(3, new TreeNode(2), new TreeNode(4));
+	treeNode->right->left->left = new TreeNode(4);
+
 	Solution_hashTablePractice so;
-	vector<Solution_hashTablePractice::TreeNode*> findNode = so.findDuplicateSubtrees(treeNode);
+	vector<TreeNode*> findNode = so.findDuplicateSubtrees(treeNode);
 	for (int i = 0; i < findNode.size(); i++)
 	{
-		Solution_hashTablePractice::TreeNode* node1 = findNode[i];
+		TreeNode* node1 = findNode[i];
 		cout << "findNode[" << i << "] = " << node1->val << endl;
 	}
 }
