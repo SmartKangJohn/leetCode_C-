@@ -493,18 +493,26 @@ vector<TreeNode*> Solution_hashTablePractice::findDuplicateSubtrees(TreeNode * r
 	}
 	vector<unordered_map<int, int>> vhash;
 	unordered_map<int, int> hash1;
-	TreeNode* rootL = root->left;
-	int i = 0;
-	hash1.insert(make_pair(root->val,i));
-	while (rootL)
+	if (root->left)
 	{
-		i++;
-		hash1.insert(make_pair(rootL->val, i));
-		if (rootL->left == nullptr)
+		hash1.clear();
+		TreeNode* rootL = root->left;
+		int i = 0;
+		hash1.insert(make_pair(root->val, i));
+		while (rootL)
 		{
+			i++;
+			hash1.insert(make_pair(rootL->val, i));
+			if (rootL->left && rootL->right)
+			{
+			}
+			else if (rootL->right == nullptr)
+				rootL = rootL->left;
 		}
-		else if(rootL->right == nullptr)
-		rootL = rootL->left;
+	}
+	else if(root->right)
+	{
+
 	}
 	return vector<TreeNode*>();
 }
