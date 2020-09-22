@@ -959,4 +959,10 @@ void test_findDuplicateSubtrees()
 		TreeNode* node1 = findNode[i];
 		cout << "findNode[" << i << "] = " << node1->val << endl;
 	}
+
+	TreeNode* rot1 = new TreeNode(0, new TreeNode(0), new TreeNode(0));
+	rot1->left->left = new TreeNode(0, nullptr, new TreeNode(0));
+	rot1->right->right = new TreeNode(0);
+	vector<TreeNode*> findNode1 = so.findDuplicateSubtrees(rot1);
+
 }

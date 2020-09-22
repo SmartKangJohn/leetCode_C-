@@ -487,32 +487,27 @@ bool Solution_hashTablePractice::isValidSudoku(vector<vector<char>>& board)
 
 vector<TreeNode*> Solution_hashTablePractice::findDuplicateSubtrees(TreeNode * root)
 {
-	if (root->left == nullptr && root->right == nullptr)
+	vector<TreeNode*> rlt;
+	unordered_map<string, int> hashStr;
+	getChildTree(root, rlt, hashStr);
+	return rlt;
+}
+
+string Solution_hashTablePractice::getChildTree(TreeNode * rot, vector<TreeNode*>& rlt, unordered_map<string, int>& hashStr)
+{
+	string str;
+	if (!rot)
 	{
-		return {};
+		return "";
 	}
-	vector<unordered_map<int, int>> vhash;
-	unordered_map<int, int> hash1;
-	if (root->left)
+	str = to_string(rot->val) + getChildTree(rot->left, rlt, hashStr) + getChildTree(rot->right, rlt, hashStr);
+	if (hashStr[str] == 1)
 	{
-		hash1.clear();
-		TreeNode* rootL = root->left;
-		int i = 0;
-		hash1.insert(make_pair(root->val, i));
-		while (rootL)
+		if (str != "")
 		{
-			i++;
-			hash1.insert(make_pair(rootL->val, i));
-			if (rootL->left && rootL->right)
-			{
-			}
-			else if (rootL->right == nullptr)
-				rootL = rootL->left;
+			rlt.push_back(rot);
 		}
 	}
-	else if(root->right)
-	{
-
-	}
-	return vector<TreeNode*>();
+	hashStr[str]++;
+	return str;
 }

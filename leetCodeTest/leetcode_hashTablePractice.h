@@ -123,6 +123,9 @@ public:
 
 private:
 	unordered_set<int> hashSet_happy;
+
+	/*深度优先搜索*/
+	string getChildTree(TreeNode* rot, vector<TreeNode*>& rlt, unordered_map<string, int>& hashStr);
 };
 
 	/*  设计哈希集合
